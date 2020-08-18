@@ -1,0 +1,10 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+  
+    &__nav-link {
+      color: #e64a19;
+    }
+}

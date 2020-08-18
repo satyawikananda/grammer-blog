@@ -3,9 +3,12 @@
 
 import DefaultLayout from '~/layouts/Default.vue'
 import Vuesax from 'vuesax'
+import VueTypedJs from 'vue-typed-js'
 import 'vuesax/dist/vuesax.css'
+import '~/assets/scss/index.scss'
 
 export default function (Vue, { router, head, isClient }) {
   Vue.use(Vuesax)
+  Vue.use(VueTypedJs)
   Vue.component('Layout', DefaultLayout)
 }

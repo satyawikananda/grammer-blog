@@ -10,10 +10,12 @@
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.1",
     "gridsome": "^0.7.0",
+    "vue-typed-js": "^0.1.2",
     "vuesax": "^3.11.17"
   },
   "devDependencies": {
     "node-sass": "^4.14.1",
-    "sass-loader": "^9.0.3"
+    "sass-loader": "^9.0.3",
+    "style-resources-loader": "^1.3.3"
   }
 }
