@@ -1,10 +1,11 @@
 <template>
-    <vs-card actionable class="cardx padding-sm margin">
+    <vs-card class="cardx padding-sm margin">
         <div slot="header">
           <h3 style="color: #E64A19">Hello world!</h3>
         </div>
         <div slot="media">
-          <g-image src="https://pbs.twimg.com/media/Ef04NN-U8AA1i9A?format=jpg" />
+          <vs-chip class="margin-xs" v-for="(chip, i) in 3" :key="i">Hacktoberfest</vs-chip>
+          <g-image src="https://pbs.twimg.com/media/Ef04NN-U8AA1i9A?format=jpg" class="padding-xs"/>
         </div>
         <div>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, tempora.</p>
