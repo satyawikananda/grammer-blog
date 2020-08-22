@@ -22,7 +22,8 @@
         </vs-row>
       </vs-col>
       <vs-col vs-type="flex" vs-justify="flex-start" vs-align="flex-start" vs-lg="6" vs-sm="12" vs-xs="12" >
-        <g-image src="~/assets/images/banner.svg" width="450" class="margin-h-sm"/>
+        <!-- <g-image src="~/assets/images/banner.svg" width="450" class="margin-h-sm"/> -->
+        <lottie :options="defaultOptions" :height="400" :width="400" />
       </vs-col>
     </vs-row>
     <svgdots />
@@ -60,11 +61,14 @@
 import svgdots from '@/components/svg/dots.vue'
 import CardLatest from '@/components/card/CardLatest.vue'
 import CardPost from '@/components/card/CardPost.vue'
+import Lottie from 'vue-lottie'
+import animationData from '@/assets/lottie-json/banner.json'
 export default {
   components: {
     svgdots,
     CardLatest,
-    CardPost
+    CardPost,
+    Lottie
   },
   metaInfo: {
     title: 'Home'
@@ -72,8 +76,12 @@ export default {
   data(){
     return {
       description: 'Blog yang berisikan tentang dunia pemrograman dan hal random lainnya, dikembangkan oleh <a href="https://github.com/satyawikananda" class="link-hero" target="_blank">Satya Wikananda</a> 😀',
-      currentx: 1
+      currentx: 1,
+      defaultOptions: { 
+        animationData: animationData, 
+        loop: true 
+      }
     }
-  }
+  },
 }
 </script>
