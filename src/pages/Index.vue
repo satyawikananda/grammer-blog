@@ -24,6 +24,7 @@
       <vs-col vs-type="flex" vs-justify="flex-start" vs-align="flex-start" vs-lg="6" vs-sm="12" vs-xs="12" >
         <!-- <g-image src="~/assets/images/banner.svg" width="450" class="margin-h-sm"/> -->
         <lottie :options="defaultOptions" :height="400" :width="400" />
+         <svgdots style="transform: translate(20px,100px)"/>
       </vs-col>
     </vs-row>
     <svgdots />
@@ -41,13 +42,18 @@
           <h2 class="padding-xs">Semua postingan</h2>
         </vs-divider>
       </vs-col>
-      <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="4" vs-sm="12" vs-xs="12" v-for="(card, i) in 6" :key="i">
-        <CardPost />
+      <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="4" vs-sm="12" vs-xs="12" v-for="(post,i) in $page.posts.edges" :key="i">
+
+        <CardPost :title="post.node.title" :desc="post.node.description" :cover="post.node.cover_image" :author="post.node.author" :timeToRead="post.node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" />
+
       </vs-col>
     </vs-row>
     <vs-row vs-w="12" class="margin-v-xl">
-      <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="12" vs-sm="12" vs-xs="12" >
-        <vs-pagination color="#E64A19" :total="20" v-model="currentx"></vs-pagination>
+      <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="6" vs-sm="6" vs-xs="6" >
+        <vs-button radius color="#e64a19" type="border" icon="chevron_left"></vs-button>
+      </vs-col>
+      <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="6" vs-sm="6" vs-xs="6" >
+        <vs-button radius color="#e64a19" type="border" icon="chevron_right"></vs-button>
       </vs-col>
     </vs-row>
 
@@ -56,6 +62,24 @@
     </vs-row>
   </Layout>
 </template>
+
+<page-query>
+  query BlogContent {
+    posts: allBlogContent(perPage: 6){
+      edges{
+        node{
+          title
+          cover_image
+          description
+          username_github
+          author
+          timeToRead
+          date
+        }
+      }
+    }
+  }
+</page-query>
 
 <script>
 import svgdots from '@/components/svg/dots.vue'
@@ -76,12 +100,33 @@ export default {
   data(){
     return {
       description: 'Blog yang berisikan tentang dunia pemrograman dan hal random lainnya, dikembangkan oleh <a href="https://github.com/satyawikananda" class="link-hero" target="_blank">Satya Wikananda</a> 😀',
-      currentx: 1,
       defaultOptions: { 
         animationData: animationData, 
         loop: true 
-      }
+      },
+      data:[],
+      avatar: []
     }
   },
+  methods: {
+    fetchData(){
+      const data = this.$page.posts.edges
+      data.forEach((res) => {
+        this.data.push(res.node.username_github)
+        this.data.forEach(async (result) => {
+          await fetch(`https://api.github.com/users/${result}`)
+           .then((response) => {
+              return response.json()
+           })
+           .then((data) => {
+             this.avatar.push(data.avatar_url)
+           })
+        })
+      })
+    }
+  },
+  mounted(){
+    this.fetchData()
+  }
 }
 </script>

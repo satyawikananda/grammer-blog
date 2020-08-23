@@ -19,7 +19,7 @@ body {
   line-height: 1.5;
 }
 
-.layout {
+.container {
   max-width: 980px;
   margin: 0 auto;
   padding-left: 20px;
@@ -63,4 +63,9 @@ body {
     -moz-transform: translateY(-20px);
     -webkit-transform: translateY(-20px);
   }
+}
+
+footer.footer {
+  background-color: #F5F5F5;
+  padding-bottom: 5vh;
 }
