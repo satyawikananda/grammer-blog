@@ -11,6 +11,7 @@
   "dependencies": {
     "@gridsome/source-filesystem": "^0.6.2",
     "@gridsome/transformer-remark": "^0.6.1",
+    "github-markdown-css": "^4.0.0",
     "gridsome": "^0.7.0",
     "lottie-web": "^5.7.2",
     "vue-typed-js": "^0.1.2",

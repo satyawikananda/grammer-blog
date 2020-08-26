@@ -4,23 +4,24 @@
           <h3 style="color: #E64A19">{{ title }}</h3>
         </div>
         <div slot="media">
-          <vs-chip class="margin-xs">Hacktoberfest</vs-chip>
-          <g-image :src="cover" class="padding-xs"/>
-        </div>
-        <div>
-            <p>{{ desc }}</p>
-        </div>
-        <div slot="footer">
-            <vs-row vs-w="12" class="margin-v-sm">
-                <vs-col type="flex" vs-lg="3" vs-sm="2" vs-xs="2">
+            <vs-row vs-w="12" class="margin-v-sm padding-xs">
+                <vs-col vs-justify="flex-start" vs-align="flex-start" vs-lg="3" vs-sm="2" vs-xs="2">
                     <vs-avatar size="40px" :src="avatarurl" :text="author" />
                 </vs-col>
-                <vs-col type="flex" vs-lg="7" vs-sm="7" vs-xs="7" class="margin-h-sm">
+                <vs-col vs-lg="7" vs-sm="7" vs-xs="7" class="margin-h-sm">
                     <h5 style="color:#e64a19">{{ author }}</h5>
                     <p class="margin-v-sm" style="font-size: .8rem">{{ timeToRead }} min read </p>
                 </vs-col>
             </vs-row>
+            <vs-chip class="margin-xs">Hacktoberfest</vs-chip>
+            <g-image :src="cover" class="padding-xs"/>
         </div>
+        <div>
+            <p>{{ desc }}</p>
+        </div>
+        <!-- <div slot="footer">
+            
+        </div> -->
     </vs-card>
 </template>
 <script>

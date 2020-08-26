@@ -43,9 +43,9 @@
         </vs-divider>
       </vs-col>
       <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="4" vs-sm="12" vs-xs="12" v-for="(post,i) in $page.posts.edges" :key="i">
-
-        <CardPost :title="post.node.title" :desc="post.node.description" :cover="post.node.cover_image" :author="post.node.author" :timeToRead="post.node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" />
-
+        <g-link :to="post.node.path" class="margin" style="height:100%;color: #37474f;">
+          <CardPost :title="post.node.title" :desc="post.node.description" :cover="post.node.cover_image" :author="post.node.author" :timeToRead="post.node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" />
+        </g-link>
       </vs-col>
     </vs-row>
     <vs-row vs-w="12" class="margin-v-xl">
@@ -75,6 +75,7 @@
           author
           timeToRead
           date
+          path
         }
       }
     }
