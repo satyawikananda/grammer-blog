@@ -33,7 +33,9 @@
         <h2 class="title-latest padding-h-sm">Postingan terakhir</h2>
       </vs-col>
       <vs-col vs-type="flex" class="margin-v-xl" vs-justify="flex-start" vs-align="flex-start" vs-lg="9" vs-sm="12" vs-xs="12">
-        <CardLatest />
+        <div v-for="(data,i) in $page.last.edges" :key="i">
+          <CardLatest :title="data.node.title" :desc="data.node.description" :cover="data.node.cover_image" :author="data.node.author" :timeToRead="data.node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" :path="data.node.path"/>
+        </div>
       </vs-col>
     </vs-row>
     <vs-row vs-w="12">
@@ -68,6 +70,20 @@
     posts: allBlogContent(perPage: 6){
       edges{
         node{
+          title
+          cover_image
+          description
+          username_github
+          author
+          timeToRead
+          date
+          path
+        }
+      }
+    }
+    last: allBlogContent(limit: 1,order: ASC) {
+      edges {
+        node {
           title
           cover_image
           description

@@ -19,9 +19,6 @@
         <div>
             <p>{{ desc }}</p>
         </div>
-        <!-- <div slot="footer">
-            
-        </div> -->
     </vs-card>
 </template>
 <script>
