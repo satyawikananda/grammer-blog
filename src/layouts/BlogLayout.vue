@@ -1,6 +1,7 @@
 <template>
     <div>
       <div class="container">
+        <btn-scroll />
         <Navbar :title="$static.metadata.siteName"/>
         <slot/>
       </div>
@@ -17,9 +18,11 @@
 </template>
 <script>
 import Navbar from "@/components/master/Navbar.vue"
+import BtnScrollTop from "@/components/button/BtnScrollTop.vue"
 export default {
   components: {
-    Navbar
+    Navbar,
+    "btn-scroll": BtnScrollTop
   }
 }
 </script>

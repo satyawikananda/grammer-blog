@@ -65,6 +65,19 @@ body {
   }
 }
 
+.back-to-top-fade-enter-active, .back-to-top-fade-leave-active {
+  transition: opacity .7s;
+}
+.back-to-top-fade-enter, .back-to-top-fade-leave-to{
+  opacity: 0;
+}
+.btn-right-bottom {
+  position: fixed;
+  bottom: 5vh;
+  right: 7vh;
+  z-index: 1;
+}
+
 footer.footer {
   background-color: #F5F5F5;
   padding-bottom: 5vh;
