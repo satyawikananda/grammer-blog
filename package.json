@@ -15,6 +15,7 @@
     "github-markdown-css": "^4.0.0",
     "gridsome": "^0.7.0",
     "lottie-web": "^5.7.2",
+    "vue-disqus": "^4.0.1",
     "vue-read-progress": "^1.0.4",
     "vue-typed-js": "^0.1.2",
     "vuesax": "^3.11.17"

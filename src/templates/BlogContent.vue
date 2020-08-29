@@ -1,6 +1,8 @@
 <template>
     <BlogLayout>
-        <read-progress color="#e64a19" opacity="0.8" :shadow="true"></read-progress>
+        <ClientOnly>
+            <read-progress color="#e64a19" opacity="0.8" :shadow="true"></read-progress>
+        </ClientOnly>
         <vs-card class="cardx padding-lg margin-v-lg">
             <vs-divider color="#e64a19">
                 <h1>{{ $page.post.title }}</h1>
@@ -31,6 +33,7 @@
             <g-image :src="$page.post.cover_image" style="width: 100%;" class="margin-v-xl"/>
             <div v-html="$page.post.content" class="markdown-body"></div>
         </vs-card>
+        <Disqus />
     </BlogLayout>
 </template>
 <page-query>

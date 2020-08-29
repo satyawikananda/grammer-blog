@@ -5,6 +5,7 @@ import DefaultLayout from '~/layouts/Default.vue'
 import BlogLayout from '~/layouts/BlogLayout.vue'
 import Vuesax from 'vuesax'
 import VueTypedJs from 'vue-typed-js'
+import VueDisqus from 'vue-disqus'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import 'prismjs/themes/prism.css'
 import 'vuesax/dist/vuesax.css'
@@ -14,6 +15,9 @@ import 'github-markdown-css/github-markdown.css'
 export default function (Vue, { router, head, isClient }) {
   Vue.use(Vuesax)
   Vue.use(VueTypedJs)
+  Vue.use(VueDisqus, {
+    shortname: 'grammer-blog'
+  })
   Vue.component('Layout', DefaultLayout)
   Vue.component('BlogLayout', BlogLayout)
 }
