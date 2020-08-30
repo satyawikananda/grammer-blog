@@ -17,14 +17,13 @@
             <h1><span class="typing"></span>readers</h1>
             </vue-typed-js>
             <h4 class="text-left margin-v-lg" style="color: #e64a19;" v-html="description"></h4>
-            <vs-button color="#FF4E50" gradient-color-secondary="#F9D423" type="gradient" icon="share">Clone repo aku</vs-button>
+            <!-- <vs-button color="#FF4E50" gradient-color-secondary="#F9D423" type="gradient" icon="share">Clone repo aku</vs-button> -->
           </vs-col>
         </vs-row>
       </vs-col>
       <vs-col vs-type="flex" vs-justify="flex-start" vs-align="flex-start" vs-lg="6" vs-sm="12" vs-xs="12" >
-        <!-- <g-image src="~/assets/images/banner.svg" width="450" class="margin-h-sm"/> -->
         <lottie :options="defaultOptions" :height="400" :width="400" />
-         <svgdots style="transform: translate(20px,100px)"/>
+        <svgdots style="transform: translate(20px,100px)"/>
       </vs-col>
     </vs-row>
     <svgdots />
@@ -34,7 +33,7 @@
       </vs-col>
       <vs-col vs-type="flex" class="margin-v-xl" vs-justify="flex-start" vs-align="flex-start" vs-lg="9" vs-sm="12" vs-xs="12">
         <div v-for="(data,i) in $page.last.edges" :key="i">
-          <CardLatest :title="data.node.title" :desc="data.node.description" :cover="data.node.cover_image" :author="data.node.author" :timeToRead="data.node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" :path="data.node.path"/>
+          <CardLatest :title="data.node.title" :desc="data.node.description" :cover="data.node.cover_image" :author="data.node.author" :timeToRead="data.node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" :path="data.node.path" :date="changeDate(data.node.date)" :tags="data.node.tags"/>
         </div>
       </vs-col>
     </vs-row>
@@ -46,7 +45,7 @@
       </vs-col>
       <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="4" vs-sm="12" vs-xs="12" v-for="(post,i) in $page.posts.edges" :key="i">
         <g-link :to="post.node.path" class="margin" style="height:100%;color: #37474f;">
-          <CardPost :title="post.node.title" :desc="post.node.description" :cover="post.node.cover_image" :author="post.node.author" :timeToRead="post.node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" />
+          <CardPost :title="post.node.title" :desc="post.node.description" :cover="post.node.cover_image" :author="post.node.author" :timeToRead="post.node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" :date="changeDate(post.node.date)" :tags="post.node.tags"  />
         </g-link>
       </vs-col>
     </vs-row>
@@ -57,6 +56,9 @@
       <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="6" vs-sm="6" vs-xs="6" >
         <vs-button radius color="#e64a19" type="border" icon="chevron_right"></vs-button>
       </vs-col>
+      <!-- <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="6" vs-sm="6" vs-xs="6" >
+        <Pager :info="$page.posts.pageInfo" />
+      </vs-col> -->
     </vs-row>
 
     <vs-row vs-justify="center">
@@ -78,6 +80,7 @@
           timeToRead
           date
           path
+          tags
         }
       }
     }
@@ -92,6 +95,7 @@
           timeToRead
           date
           path
+          tags
         }
       }
     }
@@ -104,12 +108,16 @@ import CardLatest from '@/components/card/CardLatest.vue'
 import CardPost from '@/components/card/CardPost.vue'
 import Lottie from 'vue-lottie'
 import animationData from '@/assets/lottie-json/banner.json'
+// import { Pager } from "gridsome"
+import { changeDate } from "@/mixins/changeDate.js"
 export default {
+  mixins: [changeDate],
   components: {
     svgdots,
     CardLatest,
     CardPost,
-    Lottie
+    Lottie,
+    // Pager
   },
   metaInfo: {
     title: 'Home'
@@ -140,10 +148,11 @@ export default {
            })
         })
       })
-    }
+    },
   },
   mounted(){
     this.fetchData()
+    console.log(this.avatar)
   }
 }
 </script>
