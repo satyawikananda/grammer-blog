@@ -1,5 +1,5 @@
 <template>
-    <vs-card class="cardx padding-sm margin card-content">
+    <vs-card class="cardx padding-xs margin-xs card-content" fixedHeight>
         <div slot="header">
           <h3 style="color: #E64A19">{{ title }}</h3>
         </div>
@@ -10,10 +10,10 @@
                 </vs-col>
                 <vs-col vs-lg="7" vs-sm="7" vs-xs="7" class="margin-h-sm">
                     <h5 style="color:#e64a19">{{ author }}</h5>
-                    <p class="margin-v-sm" style="font-size: .8rem">{{ timeToRead }} min read </p>
+                    <p class="margin-v-sm" style="font-size: .8rem">{{ timeToRead }} min read | {{ date }}</p>
                 </vs-col>
             </vs-row>
-            <vs-chip class="margin-xs">Hacktoberfest</vs-chip>
+            <PostTag :post="tags" />
             <g-image :src="cover" class="padding-xs"/>
         </div>
         <div>
@@ -22,7 +22,11 @@
     </vs-card>
 </template>
 <script>
+import PostTag from "@/components/tags/PostTag.vue"
 export default {
+    components: {
+        PostTag
+    },
     props: {
         title: {
             type: String,
@@ -45,6 +49,14 @@ export default {
         },
         author: {
             type: String,
+            required: true
+        },
+        date: {
+            type: String,
+            required: true
+        },
+        tags: {
+            type: Array,
             required: true
         }
     }

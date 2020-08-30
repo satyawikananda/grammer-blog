@@ -10,14 +10,15 @@
                 <vs-divider color="#e64a19">
                     <h2 class="padding-xs">{{ title }}</h2>
                 </vs-divider>
-                <p>{{ desc }}</p>
+                <PostTag :post="tags" />
+                <p class="margin-v">{{ desc }}</p>
                 <vs-row vs-w="12" class="margin-v-sm">
                     <vs-col type="flex" vs-lg="2" vs-sm="2" vs-xs="2">
                         <vs-avatar size="40px" :src="avatarurl" :text="author" />
                     </vs-col>
                     <vs-col type="flex" vs-lg="7" vs-sm="7" vs-xs="7">
                         <h4 style="color:#e64a19">{{ author }}</h4>
-                        <p class="margin-v-sm">{{ timeToRead }} min read | {{ new Date().getFullYear() }}</p>
+                        <p class="margin-v-sm">{{ timeToRead }} min read | {{ date }}</p>
                     </vs-col>
                 </vs-row>
             </vs-col>
@@ -30,7 +31,11 @@
     </vs-card>
 </template>
 <script>
+import PostTag from "@/components/tags/PostTag.vue"
 export default {
+    components: {
+        PostTag
+    },
     props: {
         title: {
             type: String,
@@ -57,6 +62,14 @@ export default {
         },
         path: {
             type: String,
+            required: true
+        },
+        date: {
+            type: String,
+            required: true
+        },
+        tags: {
+            type: Array,
             required: true
         }
     }
