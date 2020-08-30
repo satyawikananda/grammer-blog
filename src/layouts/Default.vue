@@ -3,7 +3,11 @@
     <div class="container">
       <btn-scroll />
       <Navbar :title="$static.metadata.siteName"/>
-      <slot/>
+      <transition name="fade" mode="out-in" appear>
+        <main>
+          <slot/>
+        </main>
+      </transition>
     </div>
     <footer class="footer">
       <div class="container">
@@ -24,6 +28,20 @@ query {
   }
 }
 </static-query>
+
+<style lang="scss">
+  .fade-enter-active,
+  .fade-leave-active {
+    transition-duration: 1s;
+    transition-property: opacity;
+    transition-timing-function: ease;
+  }
+
+  .fade-enter,
+  .fade-leave-active {
+    opacity: 0
+  }
+</style>
 
 <script>
 import Navbar from "@/components/master/Navbar.vue"
