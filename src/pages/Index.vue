@@ -43,11 +43,23 @@
           <h2 class="padding-xs">Semua postingan</h2>
         </vs-divider>
       </vs-col>
-      <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="4" vs-sm="12" vs-xs="12" v-for="(post,i) in $page.posts.edges" :key="i">
-        <g-link :to="post.node.path" class="margin" style="height:100%;color: #37474f;">
-          <CardPost :title="post.node.title" :desc="post.node.description" :cover="post.node.cover_image" :author="post.node.author" :timeToRead="post.node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" :date="changeDate(post.node.date)" :tags="post.node.tags"  />
-        </g-link>
-      </vs-col>
+      <transition-group name="fade">
+        <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="4" vs-sm="12" vs-xs="12" v-for="{node} of loadedPosts" :key="node.id">
+          <g-link :to="node.path" class="margin" style="height:100%;color: #37474f;">
+            <CardPost :title="node.title" :desc="node.description" :cover="node.cover_image" :author="node.author" :timeToRead="node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" :date="changeDate(node.date)" :tags="node.tags"  />
+          </g-link>
+        </vs-col>
+      </transition-group>
+      <ClientOnly>
+        <infinite-loading @infinite="infiniteHandler" spinner="spiral">
+          <div slot="no-more">
+            <h4 style="color: #E64A19">Ini sudah di penghujung blog :)</h4>
+          </div>
+          <div slot="no-results">
+            <h4 style="color: #E64A19">Belum ada postingan untuk kali ini :(</h4>
+          </div>
+        </infinite-loading>
+      </ClientOnly>
     </vs-row>
     <vs-row vs-w="12" class="margin-v-xl">
       <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="6" vs-sm="6" vs-xs="6" >
@@ -68,10 +80,15 @@
 </template>
 
 <page-query>
-  query BlogContent {
-    posts: allBlogContent(perPage: 6){
+  query($page: Int) {
+    posts: allBlogContent(perPage: 1, page: $page) @paginate {
+      pageInfo {
+        totalPages
+        currentPage
+      }
       edges{
         node{
+          id
           title
           cover_image
           description
@@ -129,30 +146,28 @@ export default {
         animationData: animationData, 
         loop: true 
       },
-      data:[],
-      avatar: []
+      loadedPosts: [],
+      currentPage: 1
     }
   },
-  methods: {
-    fetchData(){
-      const data = this.$page.posts.edges
-      data.forEach((res) => {
-        this.data.push(res.node.username_github)
-        this.data.forEach(async (result) => {
-          await fetch(`https://api.github.com/users/${result}`)
-           .then((response) => {
-              return response.json()
-           })
-           .then((data) => {
-             this.avatar.push(data.avatar_url)
-           })
-        })
-      })
-    },
+  created(){
+    this.loadedPosts.push(...this.$page.posts.edges)
   },
-  mounted(){
-    this.fetchData()
-    console.log(this.avatar)
-  }
+  methods: {
+    async infiniteHandler($state) {
+      if(this.currentPage + 1 > this.$page.posts.pageInfo.totalPages) {
+        $state.complete()
+      }else {
+        const { data } = await this.$fetch(`/${this.currentPage + 1}`)
+        if(data.posts.edges.length) {
+          this.currentPage = data.posts.pageInfo.currentPage
+          this.loadedPosts.push(...data.posts.edges)
+          $state.loaded()
+        }else{
+          $state.complete()
+        }
+      }
+    }
+  },
 }
 </script>

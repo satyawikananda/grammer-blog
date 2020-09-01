@@ -6,6 +6,7 @@ import BlogLayout from '~/layouts/BlogLayout.vue'
 import Vuesax from 'vuesax'
 import VueTypedJs from 'vue-typed-js'
 import VueDisqus from 'vue-disqus'
+import InfiniteLoading from 'vue-infinite-loading'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import 'prismjs/themes/prism.css'
 import 'vuesax/dist/vuesax.css'
@@ -18,6 +19,7 @@ export default function (Vue, { router, head, isClient }) {
   Vue.use(VueDisqus, {
     shortname: 'grammer-blog'
   })
+  Vue.use(InfiniteLoading)
   Vue.component('Layout', DefaultLayout)
   Vue.component('BlogLayout', BlogLayout)
 }
