@@ -13,7 +13,7 @@
       <div class="container">
         <vs-row vs-w="12" class="margin-v-xl">
           <vs-col class="margin" vs-type="flex" vs-justify="center" vs-align="center" vs-lg="12" vs-sm="12" vs-xs="12" >
-            <p class="text-center" style="color: #E64A19; transform: translateY(30px)">&copy; {{ new Date().getFullYear() }} Grammer blog | Powered by Gridsome</p>
+            <p class="text-center" style="color: #E64A19; transform: translateY(30px)">&copy; {{ new Date().getFullYear() }} Grammer blog | Dibuat menggunakan Gridsome dan dihosting di Vercel</p>
           </vs-col>
         </vs-row>
       </div>

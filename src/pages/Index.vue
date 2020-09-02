@@ -44,35 +44,22 @@
         </vs-divider>
       </vs-col>
       <transition-group name="fade">
-        <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="4" vs-sm="12" vs-xs="12" v-for="{node} of loadedPosts" :key="node.id">
+        <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="6" vs-sm="12" vs-xs="12" v-for="{ node } of loadedPosts" :key="node.id">
           <g-link :to="node.path" class="margin" style="height:100%;color: #37474f;">
-            <CardPost :title="node.title" :desc="node.description" :cover="node.cover_image" :author="node.author" :timeToRead="node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" :date="changeDate(node.date)" :tags="node.tags"  />
+            <CardPost :title="node.title" :desc="node.description" :cover="node.cover_image" :author="node.author" :timeToRead="node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" :date="changeDate(node.date)" :tags="node.tags" />
           </g-link>
         </vs-col>
       </transition-group>
       <ClientOnly>
-        <infinite-loading @infinite="infiniteHandler" spinner="spiral">
+        <infinite-loading @infinite="infiniteHandler" spinner="default">
           <div slot="no-more">
-            <h4 style="color: #E64A19">Ini sudah di penghujung blog :)</h4>
           </div>
           <div slot="no-results">
-            <h4 style="color: #E64A19">Belum ada postingan untuk kali ini :(</h4>
           </div>
         </infinite-loading>
       </ClientOnly>
+      <br>
     </vs-row>
-    <vs-row vs-w="12" class="margin-v-xl">
-      <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="6" vs-sm="6" vs-xs="6" >
-        <vs-button radius color="#e64a19" type="border" icon="chevron_left"></vs-button>
-      </vs-col>
-      <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="6" vs-sm="6" vs-xs="6" >
-        <vs-button radius color="#e64a19" type="border" icon="chevron_right"></vs-button>
-      </vs-col>
-      <!-- <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="6" vs-sm="6" vs-xs="6" >
-        <Pager :info="$page.posts.pageInfo" />
-      </vs-col> -->
-    </vs-row>
-
     <vs-row vs-justify="center">
       <svgdots style="transform: translateY(-80px)"/>
     </vs-row>
@@ -80,8 +67,8 @@
 </template>
 
 <page-query>
-  query($page: Int) {
-    posts: allBlogContent(perPage: 1, page: $page) @paginate {
+  query BlogContent($page: Int) {
+    posts: allBlogContent(perPage: 6, page: $page) @paginate {
       pageInfo {
         totalPages
         currentPage
@@ -155,19 +142,19 @@ export default {
   },
   methods: {
     async infiniteHandler($state) {
-      if(this.currentPage + 1 > this.$page.posts.pageInfo.totalPages) {
-        $state.complete()
-      }else {
-        const { data } = await this.$fetch(`/${this.currentPage + 1}`)
-        if(data.posts.edges.length) {
-          this.currentPage = data.posts.pageInfo.currentPage
-          this.loadedPosts.push(...data.posts.edges)
-          $state.loaded()
-        }else{
-          $state.complete()
-        }
-      }
-    }
+			if (this.currentPage + 1 > this.$page.posts.pageInfo.totalPages) {
+				$state.complete()
+			} else {
+				const { data } = await this.$fetch(`/${this.currentPage + 1}`)
+				if (data.posts.edges.length) {
+					this.currentPage = data.posts.pageInfo.currentPage
+					this.loadedPosts.push(...data.posts.edges)
+					$state.loaded()
+				} else {
+					$state.complete()
+				}
+			}
+		}
   },
 }
 </script>

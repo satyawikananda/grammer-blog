@@ -19,7 +19,14 @@ export default function (Vue, { router, head, isClient }) {
   Vue.use(VueDisqus, {
     shortname: 'grammer-blog'
   })
-  Vue.use(InfiniteLoading)
+  Vue.use(InfiniteLoading, {
+    props: {
+      distance: 120
+    },
+    system: {
+      throttleLimit: 50
+    },
+  })
   Vue.component('Layout', DefaultLayout)
   Vue.component('BlogLayout', BlogLayout)
 }
