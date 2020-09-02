@@ -42,7 +42,7 @@
         post: blogContent(path: $path) {
             title
             content
-            cover_image(fit: cover width: 800 height: 400)
+            cover_image(fit: cover)
             tags
             timeToRead
             date

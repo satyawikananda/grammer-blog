@@ -77,7 +77,7 @@
         node{
           id
           title
-          cover_image
+          cover_image(width: 600, height: 300)
           description
           username_github
           author
@@ -92,7 +92,7 @@
       edges {
         node {
           title
-          cover_image
+          cover_image(width: 600, height: 300)
           description
           username_github
           author
