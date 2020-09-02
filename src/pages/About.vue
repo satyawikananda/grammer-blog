@@ -20,7 +20,7 @@
 <script>
 export default {
   metaInfo: {
-    title: 'About us',
+    title: 'Tentang saya',
   },
   methods: {
     getAge(dateString) {

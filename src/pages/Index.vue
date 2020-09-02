@@ -33,7 +33,7 @@
       </vs-col>
       <vs-col vs-type="flex" class="margin-v-xl" vs-justify="flex-start" vs-align="flex-start" vs-lg="9" vs-sm="12" vs-xs="12">
         <div v-for="(data,i) in $page.last.edges" :key="i">
-          <CardLatest :title="data.node.title" :desc="data.node.description" :cover="data.node.cover_image" :author="data.node.author" :timeToRead="data.node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" :path="data.node.path" :date="changeDate(data.node.date)" :tags="data.node.tags"/>
+          <CardLatest :title="data.node.title" :desc="limitString(data.node.description)" :cover="data.node.cover_image" :author="data.node.author" :timeToRead="data.node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" :path="data.node.path" :date="changeDate(data.node.date)" :tags="data.node.tags"/>
         </div>
       </vs-col>
     </vs-row>
@@ -46,7 +46,7 @@
       <transition-group name="fade">
         <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="6" vs-sm="12" vs-xs="12" v-for="{ node } of loadedPosts" :key="node.id">
           <g-link :to="node.path" class="margin" style="height:100%;color: #37474f;">
-            <CardPost :title="node.title" :desc="node.description" :cover="node.cover_image" :author="node.author" :timeToRead="node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" :date="changeDate(node.date)" :tags="node.tags" />
+            <CardPost :title="node.title" :desc="limitString(node.description)" :cover="node.cover_image" :author="node.author" :timeToRead="node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" :date="changeDate(node.date)" :tags="node.tags" />
           </g-link>
         </vs-col>
       </transition-group>
@@ -114,8 +114,9 @@ import Lottie from 'vue-lottie'
 import animationData from '@/assets/lottie-json/banner.json'
 // import { Pager } from "gridsome"
 import { changeDate } from "@/mixins/changeDate.js"
+import { limitString } from "@/mixins/limitString.js"
 export default {
-  mixins: [changeDate],
+  mixins: [changeDate, limitString],
   components: {
     svgdots,
     CardLatest,
