@@ -19,13 +19,27 @@ module.exports = {
       addStyleResource(config.module.rule('scss').oneOf(type))
     })
   },
+  templates: {
+    Tag: '/tag/:title'
+  },
   siteName: 'Grammer Blog',
   plugins: [
     {
       use: '@gridsome/source-filesystem',
       options: {
         typeName: "BlogContent",
-        path: 'posts/*.md'
+        path: 'posts/*.md',
+        remark: {
+          plugins: [
+            '@gridsome/remark-prismjs'
+          ]
+        },
+        refs: {
+          tags: {
+            typeName: 'Tag',
+            create: true
+          },
+        }
       }
     }
   ],
