@@ -1,5 +1,5 @@
 <template>
-    <BlogLayout>
+    <Layout>
         <ClientOnly>
             <read-progress color="#e64a19" opacity="0.8" :shadow="true"></read-progress>
         </ClientOnly>
@@ -35,7 +35,7 @@
             <div v-html="$page.post.content" class="markdown-body"></div>
         </vs-card>
         <Disqus />
-    </BlogLayout>
+    </Layout>
 </template>
 <page-query>
     query BlogContent ($path: String!) {
