@@ -69,8 +69,8 @@ export default {
             required: true
         },
         tags: {
-            type: Array,
-            required: true
+            type: Object,
+            default: () => {}
         }
     }
 }

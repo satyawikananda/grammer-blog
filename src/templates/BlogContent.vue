@@ -10,7 +10,7 @@
             <vs-row vs-w="12">
                 <vs-col vs-type="flex" vs-lg="12" vs-sm="12" vs-xs="12">
                     <!-- <vs-chip v-for="(data, i) in $page.post.tags" :key="i" class="margin-h-xs" color="#E64A19"># {{ data }}</vs-chip> -->
-                    <PostTag :post="$page.post.tags" />
+                    <PostTag :post="$page.post" />
                 </vs-col>
                 <vs-col vs-type="flex" vs-lg="12" vs-sm="12" vs-xs="12" class="margin-v-sm">
                     <vs-row vs-w="12">
