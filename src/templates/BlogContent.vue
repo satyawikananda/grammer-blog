@@ -43,7 +43,11 @@
             title
             content
             cover_image(fit: cover)
-            tags
+            tags {
+                id
+                title
+                path
+            }
             timeToRead
             date
             author

@@ -84,7 +84,11 @@
           timeToRead
           date
           path
-          tags
+          tags {
+            id
+            title
+            path
+          }
         }
       }
     }
@@ -99,7 +103,11 @@
           timeToRead
           date
           path
-          tags
+          tags {
+            id
+            title
+            path
+          }
         }
       }
     }

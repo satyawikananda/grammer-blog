@@ -19,6 +19,9 @@ module.exports = {
       addStyleResource(config.module.rule('scss').oneOf(type))
     })
   },
+  templates: {
+    Tag: '/tag/:title'
+  },
   siteName: 'Grammer Blog',
   plugins: [
     {
@@ -30,6 +33,12 @@ module.exports = {
           plugins: [
             '@gridsome/remark-prismjs'
           ]
+        },
+        refs: {
+          tags: {
+            typeName: 'Tag',
+            create: true
+          },
         }
       }
     }

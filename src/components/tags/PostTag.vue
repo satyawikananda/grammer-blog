@@ -1,6 +1,6 @@
 <template>
     <div>
-        <vs-chip v-for="(data, i) in post" :key="i" class="margin-h-xs" color="#E64A19"># {{ data }}</vs-chip>
+        <vs-chip v-for="tag in post.tags" :key="tag.id" class="margin-h-xs" color="#E64A19"># {{ tag.title }}</vs-chip>
     </div>
 </template>
 
@@ -8,7 +8,8 @@
 export default {
     props: {
         post: {
-            type: Array
+            type: Object,
+            default: () => {}
         }
     }
 }
