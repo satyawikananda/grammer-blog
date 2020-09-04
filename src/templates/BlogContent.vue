@@ -23,7 +23,7 @@
                                     <span style="color: #e64a19;">{{ $page.post.author }}</span>
                                 </vs-col>
                                 <vs-col vs-type="flex" vs-lg="12" vs-sm="12" vs-xs="12">
-                                    <span style="color: #e64a19;">{{ $page.post.timeToRead }} min read | {{ changeDate($page.post.date) }}</span>
+                                    <span style="color: #e64a19;">{{ $page.post.timeToRead }} min read | {{ $page.post.date }}</span>
                                 </vs-col>
                             </vs-row>
                         </vs-col>
@@ -49,16 +49,14 @@
                 path
             }
             timeToRead
-            date
+            date(format: "DD-MM-YYYY")
             author
         }
     }
 </page-query>
 <script>
-import { changeDate } from "@/mixins/changeDate.js"
 import PostTag from "@/components/tags/PostTag.vue"
 export default {
-    mixins: [changeDate],
     metaInfo(){
         return {
             title: this.$page.post.title
