@@ -9,12 +9,13 @@
         <vs-navbar-item>
           <g-link to="/about" class="header__nav-link" :style="{color: '#e64a19'}">Tentang</g-link>
         </vs-navbar-item>
+        <slot />
       </vs-navbar>
     </header>
 </template>
 
 <script>
 export default {
-    props: ['title']
+  props: ['title']
 }
 </script>

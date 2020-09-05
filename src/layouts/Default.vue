@@ -2,7 +2,9 @@
   <div>
     <div class="container">
       <btn-scroll />
-      <Navbar :title="$static.metadata.siteName"/>
+      <Navbar :title="$static.metadata.siteName">
+        <theme-switcher :theme="theme" @themeChanged="updateTheme" />
+      </Navbar>
       <transition name="fade" mode="out-in" appear>
         <main>
           <slot/>
@@ -46,10 +48,22 @@ query {
 <script>
 import Navbar from "@/components/master/Navbar.vue"
 import BtnScrollTop from "@/components/button/BtnScrollTop.vue"
+import ThemeSwitcher from "@/components/switch/ThemeSwitcher.vue"
 export default {
   components: {
     Navbar,
-    "btn-scroll": BtnScrollTop
+    "btn-scroll": BtnScrollTop,
+    "theme-switcher": ThemeSwitcher
   },
+  data(){
+    return {
+      theme: ''
+    }
+  },
+  methods: {
+    updateTheme(theme){
+      this.theme = theme
+    }
+  }
 }
 </script>
