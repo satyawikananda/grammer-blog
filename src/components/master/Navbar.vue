@@ -1,5 +1,5 @@
 <template>
-    <header class="header">
+    <header class="margin-v">
       <vs-navbar class="nabarx" style="box-shadow: 0 0 0 0">
         <div slot="title">
           <vs-navbar-title>
