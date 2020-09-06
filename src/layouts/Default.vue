@@ -2,9 +2,7 @@
   <div>
     <div class="container">
       <btn-scroll />
-      <Navbar :title="$static.metadata.siteName">
-        <theme-switcher :theme="theme" @themeChanged="updateTheme" />
-      </Navbar>
+      <Navbar :title="$static.metadata.siteName"/>
       <transition name="fade" mode="out-in" appear>
         <main>
           <slot/>

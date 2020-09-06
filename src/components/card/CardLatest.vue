@@ -1,7 +1,7 @@
 <template>
-    <vs-card class="card-content">
+    <vs-card class="card-content cardx">
         <vs-row vs-w="12">
-            <vs-col vs-type="flex" vs-justify="flex-start" vs-align="flex-start" vs-lg="6" vs-sm="12" vs-xs="12">
+            <vs-col vs-type="flex" vs-justify="flex-start" vs-align="center" vs-lg="6" vs-sm="12" vs-xs="12">
                 <vs-images hover="blur">
                     <g-image :src="cover" class="margin-v-sm" style="width:100%; object-fit:cover;" />
                 </vs-images>

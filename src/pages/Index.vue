@@ -14,16 +14,18 @@
               :loop="true"
               style="color: #e64a19;"
             >
-            <h1><span class="typing"></span>readers</h1>
+            <h1><span class="typing"></span>kawan</h1>
             </vue-typed-js>
             <h4 class="text-left margin-v-lg" style="color: #e64a19;" v-html="description"></h4>
-            <!-- <vs-button color="#FF4E50" gradient-color-secondary="#F9D423" type="gradient" icon="share">Clone repo aku</vs-button> -->
+            <vs-button radius color="#FF4E50" type="border" icon-pack="fab" icon="fa-github" class="margin-xs" href="https://github.com/satyawikananda/grammer-blog"></vs-button>
+            <vs-button radius color="#FF4E50" type="border" icon-pack="fab" icon="fa-twitter" class="margin-xs" href="https://twitter.com/satya_wikananda"></vs-button>
+            <vs-button radius color="#FF4E50" type="border" icon-pack="fa" icon="fa-rss" class="margin-xs" href="/rss.xml"></vs-button>
           </vs-col>
         </vs-row>
       </vs-col>
       <vs-col vs-type="flex" vs-justify="flex-start" vs-align="flex-start" vs-lg="6" vs-sm="12" vs-xs="12" >
         <lottie :options="defaultOptions" :height="400" :width="400" />
-        <svgdots style="transform: translate(20px,100px)"/>
+        <svgdots style="transform: translate(40px,100px)"/>
       </vs-col>
     </vs-row>
     <svgdots />
@@ -119,7 +121,7 @@ import svgdots from '@/components/svg/dots.vue'
 import CardLatest from '@/components/card/CardLatest.vue'
 import CardPost from '@/components/card/CardPost.vue'
 import Lottie from 'vue-lottie'
-import animationData from '@/assets/lottie-json/banner.json'
+import animationData from '@/assets/lottie-json/programming.json'
 import { limitString } from "@/mixins/limitString.js"
 export default {
   mixins: [limitString],
@@ -135,7 +137,7 @@ export default {
   },
   data(){
     return {
-      description: 'Blog yang berisikan tentang dunia pemrograman dan hal random lainnya, dikembangkan oleh <a href="https://github.com/satyawikananda" class="link-hero" target="_blank">Satya Wikananda</a> 😀',
+      description: 'Blog yang berisikan tentang dunia pemrograman dan hal random lainnya, dikembangkan oleh Satya Wikananda 😀',
       defaultOptions: { 
         animationData: animationData, 
         loop: true 
