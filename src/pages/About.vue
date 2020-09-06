@@ -20,9 +20,11 @@
           <!-- <center>
             <div v-html="data[3].src" style="width: 20vh;height: auto;"></div>
           </center> -->
-          <vs-divider color="#E64A19"><h2>Teknologi atau pendukung yang digunakan</h2></vs-divider>
           <vs-row vs-w="12">
-            <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="3" vs-sm="6" vs-xs="6" v-for="(item,i) in data" :key="i" class="margin-v">
+            <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="12" vs-sm="12" vs-xs="12">
+              <vs-divider color="#E64A19"><h2>Teknologi yang digunakan</h2></vs-divider>
+            </vs-col>
+            <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="3" vs-sm="6" vs-xs="12" v-for="(item,i) in data" :key="i" class="margin-v">
               <vs-card class="cardx padding margin card-content" fixedHeight>
                 <center>
                   <div v-html="item.src" style="width: 100%;height:auto"></div>

@@ -4,10 +4,10 @@
             <read-progress color="#e64a19" opacity="0.8" :shadow="true"></read-progress>
         </ClientOnly>
         <vs-card class="cardx padding-lg margin-v-lg">
-            <vs-divider color="#e64a19">
-                <h1>{{ $page.post.title }}</h1>
-            </vs-divider>
             <vs-row vs-w="12">
+                <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="12" vs-sm="12" vs-xs="12">
+                    <vs-divider color="#E64A19"><h1 style="text-align:center;">{{ $page.post.title }}</h1></vs-divider>
+                </vs-col>
                 <vs-col vs-type="flex" vs-lg="12" vs-sm="12" vs-xs="12">
                     <!-- <vs-chip v-for="(data, i) in $page.post.tags" :key="i" class="margin-h-xs" color="#E64A19"># {{ data }}</vs-chip> -->
                     <PostTag :post="$page.post" />
