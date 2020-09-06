@@ -48,6 +48,7 @@
                 title
                 path
             }
+            description
             timeToRead
             date(format: "DD-MM-YYYY")
             author
@@ -59,7 +60,14 @@ import PostTag from "@/components/tags/PostTag.vue"
 export default {
     metaInfo(){
         return {
-            title: this.$page.post.title
+            title: this.$page.post.title,
+            meta: [
+                {
+                    key: 'description',
+                    name: 'description',
+                    content: this.$page.post.description
+                }
+            ]
         }
     },
     components: {

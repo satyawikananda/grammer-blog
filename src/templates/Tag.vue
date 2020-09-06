@@ -62,7 +62,14 @@ export default {
     },
     metaInfo(){
         return {
-            title: `#${this.$page.tag.title}`
+          title: `#${this.$page.tag.title}`,
+          meta: [
+            {
+              key: 'description',
+              name: 'description',
+              content: `Grammer blog | Tag ${this.$page.tag.title}`
+            }
+          ]
         }
     },
 }

@@ -24,7 +24,9 @@
 <static-query>
 query {
   metadata {
-    siteName
+    siteName,
+    siteDescription
+    siteUrl
   }
 }
 </static-query>
@@ -53,14 +55,25 @@ export default {
     "btn-scroll": BtnScrollTop,
     "theme-switcher": ThemeSwitcher
   },
-  data(){
+  metaInfo(){
     return {
-      theme: ''
-    }
-  },
-  methods: {
-    updateTheme(theme){
-      this.theme = theme
+      meta: [
+        {
+          key: 'description',
+          name: 'description',
+          content: this.$static.siteDescription
+        },
+        {
+          key: 'author',
+          name: 'author',
+          content: 'Satya Wikananda'
+        },
+        {
+          key: 'keyword',
+          name: 'keyword',
+          content: 'Satya wikananda, gridsome blog, gridsome, vue js, blog, technology, teknologi, web dev, satya'
+        }
+      ]
     }
   }
 }
