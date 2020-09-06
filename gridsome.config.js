@@ -12,6 +12,9 @@ const addStyleResource = (rule) => {
 }
 
 module.exports = {
+  siteName: "Grammer blog",
+  siteDescription: "Sebuah situs blog yang dimiliki oleh Satya Wikananda, dimana blog ini akan membahas seputar pemrograman atau teknologi khususnya di bidang website, selain itu blog ini akan membahas hal-hal lainnya juga diluar pembahasan tadi",
+  siteUrl: 'https://grammer-blog.vercel.app',
   chainWebpack(config){
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal']
 
@@ -65,6 +68,29 @@ module.exports = {
         }
       }
     },
+    {
+      use: 'gridsome-plugin-nprogress',
+      options: {
+        color: '#E64A19',
+        showSpinner: true
+      }
+    },
+    {
+      use: 'gridsome-plugin-pwa',
+      options: {
+        title: 'Grammer blog',
+        startUrl: '/',
+        display: 'standalone',
+        statusBarStyle: 'default',
+        manifestPath: 'manifest.json',
+        serviceWorkerPath: 'service-worker.js',
+        shortName: 'Grammer blog',
+        themeColor: '#E64A19',
+        backgroundColor: '#f1f2f2',
+        icon: './static/favicon.png',
+        cachedFileTypes: 'js,json,css,png,jpg,jpeg,svg',
+      }
+    }
   ],
   transformers: {
     remark: {
