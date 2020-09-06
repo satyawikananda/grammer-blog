@@ -18,7 +18,7 @@
             </vue-typed-js>
             <h4 class="text-left margin-v-lg" style="color: #e64a19;" v-html="description"></h4>
             <vs-button radius color="#FF4E50" type="border" icon-pack="fab" icon="fa-github" class="margin-xs" href="https://github.com/satyawikananda/grammer-blog"></vs-button>
-            <vs-button radius color="#FF4E50" type="border" icon-pack="fab" icon="fa-twitter" class="margin-xs" href="https://twitter.com/satya_wikananda"></vs-button>
+            <vs-button radius color="#FF4E50" type="border" icon-pack="fa" icon="fa-sitemap" class="margin-xs" href="/sitemap.xml"></vs-button>
             <vs-button radius color="#FF4E50" type="border" icon-pack="fa" icon="fa-rss" class="margin-xs" href="/rss.xml"></vs-button>
           </vs-col>
         </vs-row>

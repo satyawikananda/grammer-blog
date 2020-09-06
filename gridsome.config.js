@@ -90,6 +90,27 @@ module.exports = {
         icon: './static/favicon.png',
         cachedFileTypes: 'js,json,css,png,jpg,jpeg,svg',
       }
+    },
+    {
+      use: '@gridsome/plugin-sitemap',
+      options: {
+        cacheTime: 600000,
+        exclude: [],
+        config: {
+          '/posts/*': {
+            changefreq: 'weekly',
+            priority: 0.5
+          },
+          '/tag/*': {
+            changefreq: 'weekly',
+            priority: 0.5
+          },
+          '/about': {
+            changefreq: 'monthly',
+            priority: 0.6
+          }
+        }
+      }
     }
   ],
   transformers: {
