@@ -41,7 +41,30 @@ module.exports = {
           },
         }
       }
-    }
+    },
+    {
+      use: 'gridsome-plugin-rss',
+      options: {
+        contentTypeName: 'BlogContent',
+        feedOptions: {
+          title: 'Grammer Blog',
+          feed_url: 'https://grammer-blog.vercel.app/rss.xml',
+          site_url: 'https://grammer-blog.vercel.app'
+        },
+        feedItemOptions: (node) => ({
+          title: node.title,
+          description: node.description,
+          path: `https://grammer-blog.vercel.app/${node.path}`,
+          author: node.author,
+          date: node.date,
+          timeToRead: node.timeToRead
+        }),
+        output: {
+          dir: './static',
+          name: 'rss.xml'
+        }
+      }
+    },
   ],
   transformers: {
     remark: {
