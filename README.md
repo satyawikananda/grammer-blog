@@ -6,6 +6,4 @@
 
 # Live preview 👀
 
-<div align="center">
-    <img src="./screenshot/1.jpg" align="center" width="600px">
-</div>
+<img src="./screenshot/1.jpg" align="center" width="600px">
