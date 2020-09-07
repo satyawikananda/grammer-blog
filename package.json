@@ -1,6 +1,10 @@
 {
   "name": "grammer-blog",
   "private": true,
+  "author": {
+    "name": "Satya wikananda",
+    "email": "satyawikananda456@gmail.com"
+  },
   "scripts": {
     "build": "gridsome build",
     "develop": "gridsome develop",
