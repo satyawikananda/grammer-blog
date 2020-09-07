@@ -1,14 +1,10 @@
-# Default starter for Gridsome
+<font color="#E64A19"><h1 align="center">Grammer blog ✍😎</h1></font>
+<hr>
 
-This is the project you get when you run `gridsome create new-project`.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://raw.githubusercontent.com/satyawikananda/grammer-blog/master/LICENSE?token=AH44ZFA2LFCUSQ2P2DOYYKS7L6QWQ)
 
-### 1. Install Gridsome CLI tool if you don't have
+# Live preview 👀
 
-`npm install --global @gridsome/cli`
-
-### 2. Create a Gridsome project
-
-1. `gridsome create my-gridsome-site` to install default starter
-2. `cd my-gridsome-site` to open the folder
-3. `gridsome develop` to start a local dev server at `http://localhost:8080`
-4. Happy coding 🎉🙌
+<div align="center">
+    <img src="./screenshot/1.jpg" align="center" width="600px">
+</div>
