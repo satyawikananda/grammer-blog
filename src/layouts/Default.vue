@@ -24,7 +24,9 @@
 <static-query>
 query {
   metadata {
-    siteName
+    siteName,
+    siteDescription
+    siteUrl
   }
 }
 </static-query>
@@ -46,10 +48,33 @@ query {
 <script>
 import Navbar from "@/components/master/Navbar.vue"
 import BtnScrollTop from "@/components/button/BtnScrollTop.vue"
+import ThemeSwitcher from "@/components/switch/ThemeSwitcher.vue"
 export default {
   components: {
     Navbar,
-    "btn-scroll": BtnScrollTop
+    "btn-scroll": BtnScrollTop,
+    "theme-switcher": ThemeSwitcher
   },
+  metaInfo(){
+    return {
+      meta: [
+        {
+          key: 'description',
+          name: 'description',
+          content: this.$static.siteDescription
+        },
+        {
+          key: 'author',
+          name: 'author',
+          content: 'Satya Wikananda'
+        },
+        {
+          key: 'keyword',
+          name: 'keyword',
+          content: 'Satya wikananda, gridsome blog, gridsome, vue js, blog, technology, teknologi, web dev, satya'
+        }
+      ]
+    }
+  }
 }
 </script>

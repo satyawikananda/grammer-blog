@@ -1,7 +1,6 @@
 @import './helpers/margin.scss';
 @import './helpers/padding.scss';
 @import './helpers/text.scss';
-@import './master/index.scss';
 @import './helpers/material-icons.scss';
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
@@ -17,6 +16,7 @@ body {
   margin:0;
   padding:0;
   line-height: 1.5;
+  background-color: #f1f2f2;
 }
 
 .container {
@@ -48,6 +48,10 @@ body {
     width: 50%;
   }
 }
+
+.cardx{
+  background-color: #ffffff;
+} 
 
 .card-content {
   transition: 0.4s all ease;
@@ -93,7 +97,7 @@ body {
 }
 
 footer.footer {
-  background-color: #F5F5F5;
+  background-color: #ffffff;
   padding-bottom: 5vh;
   position: relative;
   bottom: 0;

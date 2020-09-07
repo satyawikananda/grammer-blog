@@ -3,27 +3,27 @@
         <ClientOnly>
             <read-progress color="#e64a19" opacity="0.8" :shadow="true"></read-progress>
         </ClientOnly>
-        <vs-card class="cardx padding-lg margin-v-lg">
-            <vs-divider color="#e64a19">
-                <h1>{{ $page.post.title }}</h1>
-            </vs-divider>
-            <vs-row vs-w="12">
+        <vs-card class="cardx padding-lg">
+            <vs-row>
+                <vs-col vs-lg="12" vs-sm="12" vs-xs="12">
+                    <!-- <vs-divider color="#E64A19" class="text-center" style="font-size: 1.5rem;font-weight:bold">{{ $page.post.title }}</vs-divider> -->
+                    <h1 class="text-center margin-v" style="font-size: 1.5rem;font-weight:bold;color:#E64A19;">{{ $page.post.title }}</h1>
+                </vs-col>
                 <vs-col vs-type="flex" vs-lg="12" vs-sm="12" vs-xs="12">
-                    <!-- <vs-chip v-for="(data, i) in $page.post.tags" :key="i" class="margin-h-xs" color="#E64A19"># {{ data }}</vs-chip> -->
                     <PostTag :post="$page.post" />
                 </vs-col>
                 <vs-col vs-type="flex" vs-lg="12" vs-sm="12" vs-xs="12" class="margin-v-sm">
                     <vs-row vs-w="12">
-                        <vs-col vs-type="flex" vs-lg="1" vs-sm="6" vs-xs="2">
+                        <vs-col vs-type="flex" vs-lg="1" vs-sm="6" vs-xs="12">
                             <vs-avatar size="large" src="https://avatars1.githubusercontent.com/u/33148052?v=4" text="Satya Wikananda" />
                         </vs-col>
-                        <vs-col vs-type="flex" vs-lg="11" vs-sm="6" vs-xs="10" class="margin-v-sm padding-h-xs">
+                        <vs-col vs-type="flex" vs-lg="11" vs-sm="6" vs-xs="12" class="margin-v-sm padding-h-xs">
                             <vs-row vs-w="12">
                                 <vs-col vs-type="flex" vs-lg="12" vs-sm="12" vs-xs="12">
                                     <span style="color: #e64a19;">{{ $page.post.author }}</span>
                                 </vs-col>
                                 <vs-col vs-type="flex" vs-lg="12" vs-sm="12" vs-xs="12">
-                                    <span style="color: #e64a19;">{{ $page.post.timeToRead }} min read | {{ changeDate($page.post.date) }}</span>
+                                    <span style="color: #e64a19;">{{ $page.post.timeToRead }} min read | {{ $page.post.date }}</span>
                                 </vs-col>
                             </vs-row>
                         </vs-col>
@@ -48,20 +48,26 @@
                 title
                 path
             }
+            description
             timeToRead
-            date
+            date(format: "DD-MM-YYYY")
             author
         }
     }
 </page-query>
 <script>
-import { changeDate } from "@/mixins/changeDate.js"
 import PostTag from "@/components/tags/PostTag.vue"
 export default {
-    mixins: [changeDate],
     metaInfo(){
         return {
-            title: this.$page.post.title
+            title: this.$page.post.title,
+            meta: [
+                {
+                    key: 'description',
+                    name: 'description',
+                    content: this.$page.post.description
+                }
+            ]
         }
     },
     components: {

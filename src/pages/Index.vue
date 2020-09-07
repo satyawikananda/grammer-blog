@@ -9,31 +9,33 @@
                 'Selamat datang',
                 'Welcome',
                 'Yōkoso',
-                'Benvenuta'
+                'Rahajeng rauh'
               ]"
               :loop="true"
               style="color: #e64a19;"
             >
-            <h1><span class="typing"></span>readers</h1>
+            <h1><span class="typing"></span>kawan</h1>
             </vue-typed-js>
             <h4 class="text-left margin-v-lg" style="color: #e64a19;" v-html="description"></h4>
-            <!-- <vs-button color="#FF4E50" gradient-color-secondary="#F9D423" type="gradient" icon="share">Clone repo aku</vs-button> -->
+            <vs-button radius color="#FF4E50" type="border" icon-pack="fab" icon="fa-github" class="margin-xs" href="https://github.com/satyawikananda/grammer-blog"></vs-button>
+            <vs-button radius color="#FF4E50" type="border" icon-pack="fa" icon="fa-sitemap" class="margin-xs" href="/sitemap.xml"></vs-button>
+            <vs-button radius color="#FF4E50" type="border" icon-pack="fa" icon="fa-rss" class="margin-xs" href="/rss.xml"></vs-button>
           </vs-col>
         </vs-row>
       </vs-col>
       <vs-col vs-type="flex" vs-justify="flex-start" vs-align="flex-start" vs-lg="6" vs-sm="12" vs-xs="12" >
         <lottie :options="defaultOptions" :height="400" :width="400" />
-        <svgdots style="transform: translate(20px,100px)"/>
+        <!-- <svgdots style="transform: translate(40px,100px)"/> -->
       </vs-col>
     </vs-row>
-    <svgdots />
+    <!-- <svgdots /> -->
     <vs-row vs-w="12" class="margin-v-xxl">
       <vs-col vs-type="flex" style="flex-direction:column" vs-justify="flex-start" vs-align="flex-start" vs-lg="12" vs-sm="12" vs-xs="12">
         <h2 class="title-latest padding-h-sm">Postingan terakhir</h2>
       </vs-col>
       <vs-col vs-type="flex" class="margin-v-xl" vs-justify="flex-start" vs-align="flex-start" vs-lg="9" vs-sm="12" vs-xs="12">
         <div v-for="(data,i) in $page.last.edges" :key="i">
-          <CardLatest :title="data.node.title" :desc="limitString(data.node.description)" :cover="data.node.cover_image" :author="data.node.author" :timeToRead="data.node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" :path="data.node.path" :date="changeDate(data.node.date)" :tags="data.node"/>
+          <CardLatest :title="data.node.title" :desc="limitString(data.node.description)" :cover="data.node.cover_image" :author="data.node.author" :timeToRead="data.node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" :path="data.node.path" :date="data.node.date" :tags="data.node"/>
         </div>
       </vs-col>
     </vs-row>
@@ -46,7 +48,7 @@
       <transition-group name="fade">
         <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="6" vs-sm="12" vs-xs="12" v-for="{ node } of loadedPosts" :key="node.id">
           <g-link :to="node.path" class="margin" style="height:100%;color: #37474f;">
-            <CardPost :title="node.title" :desc="limitString(node.description)" :cover="node.cover_image" :author="node.author" :timeToRead="node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" :date="changeDate(node.date)" :tags="node" />
+            <CardPost :title="node.title" :desc="limitString(node.description)" :cover="node.cover_image" :author="node.author" :timeToRead="node.timeToRead" avatarurl="https://avatars1.githubusercontent.com/u/33148052?v=4" :date="node.date" :tags="node" />
           </g-link>
         </vs-col>
       </transition-group>
@@ -61,7 +63,7 @@
       <br>
     </vs-row>
     <vs-row vs-justify="center">
-      <svgdots style="transform: translateY(-80px)"/>
+      <!-- <svgdots style="transform: translateY(-80px)"/> -->
     </vs-row>
   </Layout>
 </template>
@@ -82,7 +84,7 @@
           username_github
           author
           timeToRead
-          date
+          date(format: "DD-MM-YYYY")
           path
           tags {
             id
@@ -101,7 +103,7 @@
           username_github
           author
           timeToRead
-          date
+          date(format: "DD-MM-YYYY")
           path
           tags {
             id
@@ -119,12 +121,10 @@ import svgdots from '@/components/svg/dots.vue'
 import CardLatest from '@/components/card/CardLatest.vue'
 import CardPost from '@/components/card/CardPost.vue'
 import Lottie from 'vue-lottie'
-import animationData from '@/assets/lottie-json/banner.json'
-// import { Pager } from "gridsome"
-import { changeDate } from "@/mixins/changeDate.js"
+import animationData from '@/assets/lottie-json/programming.json'
 import { limitString } from "@/mixins/limitString.js"
 export default {
-  mixins: [changeDate, limitString],
+  mixins: [limitString],
   components: {
     svgdots,
     CardLatest,
@@ -137,7 +137,7 @@ export default {
   },
   data(){
     return {
-      description: 'Blog yang berisikan tentang dunia pemrograman dan hal random lainnya, dikembangkan oleh <a href="https://github.com/satyawikananda" class="link-hero" target="_blank">Satya Wikananda</a> 😀',
+      description: 'Blog yang berisikan tentang dunia pemrograman dan hal random lainnya, dikembangkan oleh Satya Wikananda 😀',
       defaultOptions: { 
         animationData: animationData, 
         loop: true 
