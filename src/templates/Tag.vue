@@ -15,7 +15,7 @@
             </vs-col>
         </vs-row>
         <vs-row vs-justify="center">
-            <svgdots style="transform: translateY(-80px)"/>
+            <!-- <svgdots style="transform: translateY(-80px)"/> -->
         </vs-row>
     </Layout>
 </template>

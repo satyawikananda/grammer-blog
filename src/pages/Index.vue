@@ -9,7 +9,7 @@
                 'Selamat datang',
                 'Welcome',
                 'Yōkoso',
-                'Benvenuta'
+                'Rahajeng rauh'
               ]"
               :loop="true"
               style="color: #e64a19;"
@@ -25,10 +25,10 @@
       </vs-col>
       <vs-col vs-type="flex" vs-justify="flex-start" vs-align="flex-start" vs-lg="6" vs-sm="12" vs-xs="12" >
         <lottie :options="defaultOptions" :height="400" :width="400" />
-        <svgdots style="transform: translate(40px,100px)"/>
+        <!-- <svgdots style="transform: translate(40px,100px)"/> -->
       </vs-col>
     </vs-row>
-    <svgdots />
+    <!-- <svgdots /> -->
     <vs-row vs-w="12" class="margin-v-xxl">
       <vs-col vs-type="flex" style="flex-direction:column" vs-justify="flex-start" vs-align="flex-start" vs-lg="12" vs-sm="12" vs-xs="12">
         <h2 class="title-latest padding-h-sm">Postingan terakhir</h2>
@@ -63,7 +63,7 @@
       <br>
     </vs-row>
     <vs-row vs-justify="center">
-      <svgdots style="transform: translateY(-80px)"/>
+      <!-- <svgdots style="transform: translateY(-80px)"/> -->
     </vs-row>
   </Layout>
 </template>

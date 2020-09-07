@@ -7,7 +7,7 @@
           </vs-navbar-title>
         </div>
         <vs-navbar-item>
-          <g-link to="/about" class="header__nav-link" :style="{color: '#e64a19'}">Tentang</g-link>
+          <g-link to="/about" class="header__nav-link" :style="{color: '#e64a19', fontSize: '1rem'}">Tentang</g-link>
         </vs-navbar-item>
         <slot />
       </vs-navbar>

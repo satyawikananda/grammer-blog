@@ -5,10 +5,10 @@
         </div>
         <div slot="media">
             <vs-row vs-w="12" class="margin-v-sm padding-xs">
-                <vs-col vs-justify="flex-start" vs-align="flex-start" vs-lg="2" vs-sm="2" vs-xs="2">
+                <vs-col vs-justify="flex-start" vs-align="flex-start" vs-lg="2" vs-sm="2" vs-xs="12">
                     <vs-avatar size="40px" :src="avatarurl" :text="author" />
                 </vs-col>
-                <vs-col vs-lg="7" vs-sm="7" vs-xs="7" class="margin-h-sm">
+                <vs-col vs-lg="7" vs-sm="7" vs-xs="12" class="margin-h-sm">
                     <h5 style="color:#e64a19">{{ author }}</h5>
                     <p class="margin-v-sm" style="font-size: .8rem">{{ timeToRead }} min read | {{ date }}</p>
                 </vs-col>
