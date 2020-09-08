@@ -5,6 +5,7 @@
         </ClientOnly>
         <vs-card class="cardx padding-lg">
             <vs-row>
+                <vs-button color="#FF4E50" type="border" icon-pack="fa" icon="fa-arrow-left" class="margin-xs" @click="$router.go(-1)">Kembali</vs-button>
                 <vs-col vs-lg="12" vs-sm="12" vs-xs="12">
                     <!-- <vs-divider color="#E64A19" class="text-center" style="font-size: 1.5rem;font-weight:bold">{{ $page.post.title }}</vs-divider> -->
                     <h1 class="text-center margin-v" style="font-size: 1.5rem;font-weight:bold;color:#E64A19;">{{ $page.post.title }}</h1>
