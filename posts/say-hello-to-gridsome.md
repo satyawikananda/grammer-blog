@@ -1,10 +1,10 @@
 ---
-title: Say hello to Gridsome 🎉
+title: First post 🎉
 date: 2019-02-07
-tags: ['Markdown', 'Releases']
+tags: ['First', 'Post']
 canonical_url: false
-description: "A new static site generator baby is born. It's highly inspired by Gatsby.js (React based) but built on top of Vue.js. We have been working on it for a year and will have a beta ready soon. You can expect this baby to grow up fast!"
-author: satyawikananda
+description: "This is my first post on my blog, i will keep movin on to write a nice usefull blog, i hope you all like it"
+author: Satya Wikananda
 cover_image: ./images/alexandr-podvalny-220262-unsplash.jpg
 username_github: satyawikananda
 ---
