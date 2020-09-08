@@ -1,7 +1,7 @@
 <template>
     <vs-card class="card-content cardx">
         <vs-row vs-w="12">
-            <vs-col vs-type="flex" vs-justify="flex-start" vs-align="center" vs-lg="6" vs-sm="12" vs-xs="12">
+            <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="6" vs-sm="12" vs-xs="12">
                 <vs-images hover="blur">
                     <g-image :src="cover" class="margin-v-sm" style="width:100%; object-fit:cover;" />
                 </vs-images>
@@ -13,7 +13,7 @@
                 <PostTag :post="tags" />
                 <p class="margin-v">{{ desc }}</p>
                 <vs-row vs-w="12" class="margin-v-sm">
-                    <vs-col type="flex" vs-lg="2" vs-sm="2" vs-xs="2">
+                    <vs-col type="flex" vs-lg="2" vs-sm="1" vs-xs="2">
                         <vs-avatar size="40px" :src="avatarurl" :text="author" />
                     </vs-col>
                     <vs-col type="flex" vs-lg="7" vs-sm="7" vs-xs="7">
