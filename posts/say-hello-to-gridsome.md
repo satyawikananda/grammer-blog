@@ -3,7 +3,7 @@ title: First post 🎉
 date: 2019-02-07
 tags: ['First', 'Post']
 canonical_url: false
-description: "This is my first post on my blog, i will keep movin on to write a nice usefull blog, i hope you all like it"
+description: "This is my first post on my blog, i will keep movin on to write a nice usefull blog, i hope you all like it 😀"
 author: Satya Wikananda
 cover_image: ./images/alexandr-podvalny-220262-unsplash.jpg
 username_github: satyawikananda
