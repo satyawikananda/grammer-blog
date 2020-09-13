@@ -23,6 +23,7 @@
 * Halaman 404
 * Mendukung <i>Progressive Web App</i>
 * Mendukung tampilan <i>mobile</i>
+* Fitur bagikan ke beberapa sosial media seperti Twitter, Facebook, Telegram, Line, dan Whatsapp
 
 # Cara pemasangan
 ```
@@ -59,4 +60,4 @@ yarn build
 * [Vercel](https://vercel.com) Sebagai tempat <i>deploy</i> untuk situs blog ini
 
 # Pengembang
-[@Satyawikananda](https://instagram.com/satyawikananda) ©2020
+[Satyawikananda](https://instagram.com/satyawikananda) ©2020
