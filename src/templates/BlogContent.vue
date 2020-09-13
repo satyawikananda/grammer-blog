@@ -43,6 +43,7 @@
                         network="twitter"
                         :url="url"
                         :title="$page.post.title"
+                        :description="$page.post.description"
                     >
                         <vs-button color="#FF4E50" type="border" icon-pack="fab" icon="fa-twitter" class="margin-xs" />
                     </ShareNetwork>
@@ -50,6 +51,7 @@
                         network="facebook"
                         :url="url"
                         :title="$page.post.title"
+                        :description="$page.post.description"
                     >
                         <vs-button color="#FF4E50" type="border" icon-pack="fab" icon="fa-facebook" class="margin-xs" />
                     </ShareNetwork>
@@ -57,6 +59,7 @@
                         network="telegram"
                         :url="url"
                         :title="$page.post.title"
+                        :description="$page.post.description"
                     >
                         <vs-button color="#FF4E50" type="border" icon-pack="fab" icon="fa-telegram" class="margin-xs" />
                     </ShareNetwork>
@@ -64,6 +67,7 @@
                         network="line"
                         :url="url"
                         :title="$page.post.title"
+                        :description="$page.post.description"
                     >
                         <vs-button color="#FF4E50" type="border" icon-pack="fab" icon="fa-line" class="margin-xs" />
                     </ShareNetwork>
@@ -71,6 +75,7 @@
                         network="whatsapp"
                         :url="url"
                         :title="$page.post.title"
+                        :description="$page.post.description"
                     >
                         <vs-button color="#FF4E50" type="border" icon-pack="fab" icon="fa-whatsapp" class="margin-xs" />
                     </ShareNetwork>
