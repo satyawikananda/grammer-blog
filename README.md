@@ -60,4 +60,4 @@ yarn build
 * [Vercel](https://vercel.com) Sebagai tempat <i>deploy</i> untuk situs blog ini
 
 # Pengembang
-[@Satyawikananda](https://instagram.com/satyawikananda) ©2020
+[Satyawikananda](https://instagram.com/satyawikananda) ©2020
