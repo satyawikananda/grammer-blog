@@ -23,6 +23,7 @@
 * Halaman 404
 * Mendukung <i>Progressive Web App</i>
 * Mendukung tampilan <i>mobile</i>
+* Fitur bagikan ke beberapa sosial media
 
 # Cara pemasangan
 ```
