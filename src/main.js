@@ -6,6 +6,7 @@ import Vuesax from 'vuesax'
 import VueTypedJs from 'vue-typed-js'
 import VueDisqus from 'vue-disqus'
 import InfiniteLoading from 'vue-infinite-loading'
+import VueSocialSharing from 'vue-social-sharing'
 import '@fortawesome/fontawesome-free/css/all.min.css'
 import 'prismjs/plugins/line-numbers/prism-line-numbers.css'
 import 'prismjs/themes/prism.css'
@@ -27,5 +28,6 @@ export default function (Vue, { router, head, isClient }) {
       throttleLimit: 50
     },
   })
+  Vue.use(VueSocialSharing)
   Vue.component('Layout', DefaultLayout)
 }

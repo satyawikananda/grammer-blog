@@ -10093,6 +10093,11 @@ vue-server-renderer@^2.6.10:
     serialize-javascript "^3.1.0"
     source-map "0.5.6"
 
+vue-social-sharing@^3.0.0-beta.11:
+  version "3.0.0-beta.11"
+  resolved "https://registry.yarnpkg.com/vue-social-sharing/-/vue-social-sharing-3.0.0-beta.11.tgz#3a753664f256ae4040ca2d7634dde47c83024038"
+  integrity sha512-jIATgcKcBGQveAbU4sKjHcsGN7gI/bq/T9fm/5qowtBuZe0I+5CZRWcAGDd6G64HzQfFEyNBLC02GYjMtaovhA==
+
 vue-style-loader@^4.1.0:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/vue-style-loader/-/vue-style-loader-4.1.2.tgz#dedf349806f25ceb4e64f3ad7c0a44fba735fcf8"

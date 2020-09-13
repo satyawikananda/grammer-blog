@@ -34,6 +34,48 @@
             <!-- <p>{{ $page.post.author }}</p> -->
             <g-image :src="$page.post.cover_image" style="width: 100%;" class="margin-v-xl"/>
             <div v-html="$page.post.content" class="markdown-body"></div>
+            <vs-row vs-w="12" class="margin-v">
+                <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="12" vs-xs="12" vs-sm="12">
+                    <vs-divider color="#E64A19"><h3>Bagikan konten ini ke sosial media</h3></vs-divider>
+                </vs-col>
+                <vs-col vs-type="flex" vs-justify="center" vs-align="center" vs-lg="12" vs-xs="12" vs-sm="12">
+                    <ShareNetwork
+                        network="twitter"
+                        :url="url"
+                        :title="$page.post.title"
+                    >
+                        <vs-button color="#FF4E50" type="border" icon-pack="fab" icon="fa-twitter" class="margin-xs" />
+                    </ShareNetwork>
+                    <ShareNetwork
+                        network="facebook"
+                        :url="url"
+                        :title="$page.post.title"
+                    >
+                        <vs-button color="#FF4E50" type="border" icon-pack="fab" icon="fa-facebook" class="margin-xs" />
+                    </ShareNetwork>
+                    <ShareNetwork
+                        network="telegram"
+                        :url="url"
+                        :title="$page.post.title"
+                    >
+                        <vs-button color="#FF4E50" type="border" icon-pack="fab" icon="fa-telegram" class="margin-xs" />
+                    </ShareNetwork>
+                    <ShareNetwork
+                        network="line"
+                        :url="url"
+                        :title="$page.post.title"
+                    >
+                        <vs-button color="#FF4E50" type="border" icon-pack="fab" icon="fa-line" class="margin-xs" />
+                    </ShareNetwork>
+                    <ShareNetwork
+                        network="whatsapp"
+                        :url="url"
+                        :title="$page.post.title"
+                    >
+                        <vs-button color="#FF4E50" type="border" icon-pack="fab" icon="fa-whatsapp" class="margin-xs" />
+                    </ShareNetwork>
+                </vs-col>
+            </vs-row>
         </vs-card>
         <Disqus />
     </Layout>
@@ -69,6 +111,15 @@ export default {
                     content: this.$page.post.description
                 }
             ]
+        }
+    },
+    data(){
+        const fullUrl = window.location.href
+        const splitUrl = fullUrl.split('/')
+        const indexOfUrl = splitUrl.indexOf('posts')
+        const result = splitUrl[indexOfUrl+1]
+        return {
+            url: `https://grammer-blog.vercel.app/posts/${result}`
         }
     },
     components: {

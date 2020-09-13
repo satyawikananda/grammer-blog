@@ -94,7 +94,7 @@
         }
       }
     }
-    last: allBlogContent(limit: 1,order: ASC) {
+    last: allBlogContent(limit: 1,order: DESC) {
       edges {
         node {
           title

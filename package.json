@@ -27,6 +27,7 @@
     "vue-disqus": "^4.0.1",
     "vue-infinite-loading": "^2.4.5",
     "vue-read-progress": "^1.0.4",
+    "vue-social-sharing": "^3.0.0-beta.11",
     "vue-typed-js": "^0.1.2",
     "vuesax": "^3.11.17"
   },
