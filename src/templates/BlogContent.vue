@@ -114,10 +114,13 @@ export default {
         }
     },
     data(){
-        const fullUrl = window.location.href
-        const splitUrl = fullUrl.split('/')
-        const indexOfUrl = splitUrl.indexOf('posts')
-        const result = splitUrl[indexOfUrl+1]
+        let result
+        if(process.isClient) {
+            const fullUrl = window.location.href
+            const splitUrl = fullUrl.split('/')
+            const indexOfUrl = splitUrl.indexOf('posts')
+            result = splitUrl[indexOfUrl+1]
+        }
         return {
             url: `https://grammer-blog.vercel.app/posts/${result}`
         }
