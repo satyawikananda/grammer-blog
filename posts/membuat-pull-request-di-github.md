@@ -28,7 +28,7 @@ Setelah itu, tunggu beberapa saat sampai selesai.
 
 ![proses-fork-repositori](./images/pr-2.jpg)
 
-2. **klon repositori**
+2. **Klon repositori**
 
 Langkah kedua, jika proses forking repositorinya sudah selesai, klon repositori tersebut dengan langkah yang pertama, klik tombol **code**, lalu salin pranala yang ada dibagian https tersebut.
 
@@ -37,7 +37,7 @@ Langkah kedua, jika proses forking repositorinya sudah selesai, klon repositori 
 Setelah pranala tersebut sudah disalin, buka terminal atau command prompt favorit kalian (dalam tutorial ini, saya menggunakan git bash) di folder manapun, bebas kalian sendiri yang menentukan, setelah itu jalankan perintah git klon dibawah ini
 
 ```
-git klon [pranala https yang sudah disalin sebelumnya]
+git clone [pranala https yang sudah disalin sebelumnya]
 ```
 > pada saat menjalankan perintah itu, kurung kotak tersebut tidak diisi
 
