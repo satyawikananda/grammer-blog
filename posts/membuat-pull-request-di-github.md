@@ -1,7 +1,7 @@
 ---
 title: Membuat Pull Request di Github
 date: 2020-09-30
-tags: ['Hacktoberfest', 'Git', 'Github']
+tags: ['Git', 'Github']
 canonical_url: false
 description: "Di konten kali ini, saya mau menjelaskan bagaimana cara membuat Pull Request di Github, jika kalian belum tau apa itu Pull Request (PR), yuk simak selengkapnya..."
 author: Satya Wikananda
