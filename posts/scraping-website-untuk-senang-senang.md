@@ -1,5 +1,5 @@
 ---
-title: Scraping website untuk senang senang
+title: Scraping Website untuk Senang-senang
 date: 2020-12-03
 tags: ['scraping-website', 'node-js']
 canonical_url: false
@@ -8,10 +8,10 @@ author: Satya Wikananda
 cover_image: ./images/post-3/banner.jpg
 username_github: satyawikananda
 ---
-Halo semuanya, sudah lama saya tidak merilis artikel diblog saya ini dikarenakan baru sempat dan niat yang cukup untuk menulis hahaha. Pada tulisan saat ini, saya ingin membagikan pengalaman saya mengenai web scraping. Pada kasus kali ini, saya akan menscraping sebuah laman di website jurnal otaku tag waifu wednesday, dan untuk kali ini saya ingin mengambil daftar daftar waifu yang ada dilaman tersebut.
+Halo semuanya, sudah lama saya tidak merilis artikel diblog saya ini dikarenakan baru sempat dan niat yang cukup untuk menulis hahaha. Pada tulisan saat ini, saya ingin membagikan pengalaman saya mengenai web scraping. Pada kasus kali ini, saya akan menscraping sebuah laman di website jurnal otaku tag waifu wednesday, dan untuk kali ini saya ingin mengambil daftar-daftar waifu yang ada dilaman tersebut.
 
 # Pendahuluan 😀
-Web scraping merupakan kegiatan yang dilakukan untuk mengambil data tertentu secara semi-terstruktur dari sebuah halaman website (source: wikipedia), singkatnya web scraping adalah sebuah teknik untuk mengambil nilai dari sebuah elemen tertentu dari suatu website. Untuk web scraping ini sepengetahuan saya ada beberapa teknik seperti mengambil nilai dari DOM HTML yang bisa kita lihat melalui inspect element pada dev tools browser kalian atau bisa dengan cara melihat request dan response dari API yang digunakan yang dimana kita bisa lihat tersebut di menu network browser kalian.
+Web scraping merupakan kegiatan yang dilakukan untuk mengambil data tertentu secara semi-terstruktur dari sebuah halaman website (sumber: wikipedia), singkatnya web scraping adalah sebuah teknik untuk mengambil nilai dari sebuah elemen tertentu dari suatu website. Untuk web scraping ini sepengetahuan saya ada beberapa teknik seperti mengambil nilai dari DOM HTML yang bisa kita lihat melalui inspect element pada dev tools browser kalian atau bisa dengan cara melihat request dan response dari API yang digunakan yang dimana kita bisa lihat tersebut di menu network browser kalian.
 
 ![SS DOM HTML inspect element](./images/post-3/1.jpg)
 > <p align="center">Screenshot DOM HTML inspect element </p>
@@ -20,17 +20,17 @@ Web scraping merupakan kegiatan yang dilakukan untuk mengambil data tertentu sec
 > <p align="center">Screenshot network tab dev tools </p>
 
 # Perkakas yang digunakan 🔧
-Pada kasus saya ini, saya menggunakan bahasa pemrograman Javascript dan lebih tepatnya menggunakan Node Js, kenapa saya menggunakan Node js sedangkan ada bahasa python dll ? karena saya bisanya hanya Node js saja :'). Lalu selain itu saya juga menggunakan beberapa pustaka open source seperti:
+Pada kasus saya ini, saya menggunakan bahasa pemrograman Javascript dan lebih tepatnya menggunakan Node.js, kenapa saya menggunakan Node.js sedangkan ada bahasa python dll ? karena saya bisanya hanya Node.js saja :'). Lalu selain itu saya juga menggunakan beberapa pustaka sumber terbuka seperti:
 
 1. Axios
 
-Axios ini merupakan sebuah pustaka berbasis promise yang dimana kita bisa mengambil semua isi DOM HTML dari website tujuan kita.
+Axios ini merupakan sebuah pustaka berbasis `promise` yang dimana kita bisa mengambil semua isi DOM HTML dari website tujuan kita.
 
 Sumber kode: [https://github.com/axios/axios](https://github.com/axios/axios)
 
 2. Cheerio
 
-Jika kalian sudah familiar dengan salah satu pustaka terkenal yang bernama jQuery, aku yakin kamu akan dengan mudah menggunakan pustaka yang satu ini karena syntax untuk menggunakan pustaka ini mirip dengan pada saat kamu menggunakan jQuery. Cheerio merupakan sebuah pustaka yang berguna untuk memparsing DOM HTML yang sudah kita dapatkan sebelumnya dengan menggunakan Axios.
+Jika kalian sudah familiar dengan salah satu pustaka terkenal yang bernama jQuery, saya yakin kamu akan dengan mudah menggunakan pustaka yang satu ini karena syntax atau gaya penulisan untuk menggunakan pustaka ini mirip dengan pada saat kamu menggunakan jQuery. Cheerio merupakan sebuah pustaka yang berguna untuk memparsing DOM HTML yang sudah kita dapatkan sebelumnya dengan menggunakan Axios.
 
 Sumber kode: [https://github.com/cheeriojs/cheerio](https://github.com/cheeriojs/cheerio)
 
@@ -42,9 +42,9 @@ Sumber kode: [https://github.com/chalk/chalk](https://github.com/chalk/chalk)
 
 # Memulai scraping 🏃‍♀️🏃‍♂️
 ## Installasi perkakas dan pustaka-pustaka
-Sebelum memulai scraping, pastikan kamu sudah menginstall Node JS di PC atau laptop kalian masing-masing, untuk penginstallannya kalian bisa mengunjungi link ini [https://nodejs.org/en/](https://nodejs.org/en/). 
+Sebelum memulai scraping, pastikan kamu sudah menginstall Node.js di PC atau laptop kalian masing-masing, untuk penginstallannya kalian bisa mengunjungi link ini [https://nodejs.org/en/](https://nodejs.org/en/). 
 
-Untuk package manager kali ini saya menggunakan package manager yang bernama pnpm, saya memakai pnpm ini dikarenakan saya rasa ini lebih cepat dari saja dari yarn ataupun npm, jika kamu ada pendapat boleh di tulis di kolom komentar dibawah ini, tapi kalau kamu menggunakan package manager yang lain, kamu bisa menyesuaikannya sendiri lagi. Tetapi sebelum melakukan penginstallan pustaka-pustaka, pastikan dulu kamu sudah menginisialisasikan projek tersebut dengan package manager kamu masing-masing, untuk caranya kamu bisa sesuaikan dengan package manager kamu, setelah sudah diinisialisasikan kamu bisa menginstall pustakanya dengan menjalankan perintah dibawah ini:
+Untuk package manager kali ini saya menggunakan package manager yang bernama pnpm, saya memakai pnpm ini dikarenakan saya rasa ini lebih cepat dari yarn ataupun npm, jika kamu ada pendapat boleh di tulis di kolom komentar dibawah ini, tapi kalau kamu menggunakan package manager yang lain, kamu bisa menyesuaikannya sendiri lagi. Tetapi sebelum melakukan penginstallan pustaka-pustaka, pastikan dulu kamu sudah menginisialisasikan projek tersebut dengan package manager kamu masing-masing, untuk caranya kamu bisa sesuaikan dengan package manager kamu, setelah sudah diinisialisasikan kamu bisa menginstall pustakanya dengan menjalankan perintah dibawah ini:
 
 ```
 pnpm install axios cheerio chalk
@@ -53,9 +53,9 @@ pnpm install axios cheerio chalk
 Jika sudah menginstall pustaka-pustaka tersebut, untuk struktur foldernya sendiri, kamu bisa mengunjungi repositori projek saya di github [satyawikananda/waifugenerator](https://github.com/satyawikananda/waifu-generator).
 
 ## Saatnya mengambil data waifu
-Untuk scraping kali ini, saya menggunakan cara mengambil nilai nilai dari DOM HTML yang sudah saya jelaskan sebelumnya, kenapa saya memakai cara ini ? karena website yang saya akan scrape ini tidak ada melakukan proses request dan response dari sebuah rest API, oleh karena itu saya mengambil nilai nilai dari DOM HTML di website tersebut.
+Untuk scraping kali ini, saya menggunakan cara mengambil nilai-nilai dari DOM HTML yang sudah saya jelaskan sebelumnya, kenapa saya memakai cara ini ? karena website yang saya akan `scrape` ini tidak ada melakukan proses request dan response dari sebuah rest API, oleh karena itu saya mengambil nilai nilai dari DOM HTML di website tersebut.
 
-Jika kamu sudah melihat repositori projek saya di github, kalian bisa melihatnya di dalam folder src dan disana akan terdapat berkas javascript yang bernama waifuScrape.js yang dimana didalam berkas tersebut berisikan proses dan cara scraping data yang saya lakukan.
+Jika kamu sudah melihat repositori projek saya di github, kalian bisa melihatnya di dalam folder `src` dan disana akan terdapat berkas javascript yang bernama waifuScrape.js yang dimana didalam berkas tersebut berisikan proses dan cara scraping data yang saya lakukan.
 
 Langkah pertama yang saya lakukan adalah saya memanggil pustaka seperti axios, cheerio, dan chalk. Untuk memanggil pustaka-pustaka tersebut bisa dilakukan dengan cara dibawah ini:
 
@@ -65,7 +65,7 @@ const cheerio = require('cheerio')
 const chalk = require('chalk')
 ```
 
-Lalu langkah yang kedua, saya membuat sebuah arrow function yang bernama `WaifuGenerator` yang dimana function tersebut berisi proses scraping data-datanya, dan juga terdapat sebuah parameter yang bernama url yang dimana nanti akan menerima sebuah base url berisi url http://jurnalotaku.com/tag/waifu-wednesday/, untuk kodenya bisa dilihat dibawah ini: 
+Lalu langkah yang kedua, saya membuat sebuah arrow function yang bernama `WaifuGenerator` yang dimana function tersebut berisi proses scraping data-datanya, dan juga terdapat sebuah parameter yang bernama url yang dimana nanti akan menerima sebuah argumen base url berisi url http://jurnalotaku.com/tag/waifu-wednesday/, untuk kodenya bisa dilihat dibawah ini: 
 
 ```js
 const data = []
@@ -102,7 +102,7 @@ const WaifuGenerator = (url) => {
 ```
 Tenang, jika kamu masih kurang paham dengan alur kode diatas, saya akan menjelaskannya hahaha. Pertama, saya membuat variabel bernama data yang berisi array kosongan yang nantinya berguna untuk menyimpan data scraping tersebut ke dalam array kosongan itu. 
 
-Lalu yang kedua, didalam arrow function tersebut, saya akan langsung mengembalikan sebuah promise yang nantinya akan menjalankan fungsi `resolve` dan `reject` serta saya juga menambahkan metode async dan await dikarenakan saya ingin menjalankan sebuah proses asynchronous.
+Lalu yang kedua, didalam `arrow function` tersebut, saya akan langsung mengembalikan sebuah `promise` yang nantinya akan menjalankan fungsi `resolve` dan `reject` serta saya juga menambahkan metode `async` dan `await` dikarenakan saya ingin menjalankan sebuah proses `asynchronous`.
 
 ```js
 await axios.get(url)
@@ -115,9 +115,9 @@ await axios.get(url)
     })
 ```
 
-Lalu yang ketiga, seperti kode yang saya tunjukan diatas ini, saya memanggil url dari parameter yang nantinya akan berisi base url dari http://jurnalotaku.com/tag/waifu-wednesday/ oleh axios ini setelah itu saya then untuk mengambil response dari url tersebut setelah itu hasil dari response tersebut, saya simpan didalam variabel yang bernama `html` yang dimana variabel `html` itu akan disimpan didalam variabel bernama `$` dan juga didalam value variable `$` memanggil pustaka load dari cheerio yang dimana fungsi load dari cheerio tersebut menerima sebuah argumen dari isi variabel `html` tersebut
+Lalu yang ketiga, seperti kode yang saya tunjukan diatas ini, saya memanggil url dari parameter yang nantinya akan berisi base url dari http://jurnalotaku.com/tag/waifu-wednesday/ oleh axios ini setelah itu saya `then` untuk mengambil response dari url tersebut setelah itu hasil dari response tersebut, saya simpan didalam variabel yang bernama `html` yang dimana variabel `html` itu akan disimpan didalam variabel bernama `$` dan juga didalam nilai variable `$` memanggil pustaka load dari cheerio yang dimana fungsi load dari cheerio tersebut menerima sebuah argumen dari isi variabel `html` tersebut
 
-> Saya menamakan variabel tersebut dengan nama `$` dikarenakan agar terlihat mirip nanti seperti jQuery mengingat cheerio ini memiliki syntax yang mirip dengan jQuery
+> Saya menamakan variabel tersebut dengan nama `$` dikarenakan agar terlihat mirip nanti seperti jQuery mengingat cheerio ini memiliki `syntax` yang mirip dengan jQuery
 
 Selanjutnya saya ingin mendapatkan nilai dari elemen DOM dan akan saya jadikan data yang akan disimpan didalam variabel `data` yang berisi array kosongan tersebut.
 
@@ -169,7 +169,7 @@ articleWaifu.each((i, el) => {
 })
 ```
 
-Dikarenakan website tersebut memiliki pagination, saya ingin datanya itu terambil juga dihalaman yang lainnya sampai kehalaman paling ujung dari website tersebut, untuk mengakali itu, saya mengambil nilai atribut href dari tombol next pagination yang dimana itu berisi nilai url ke halaman selanjutnya
+Dikarenakan website tersebut memiliki pagination, saya ingin datanya itu terambil juga dihalaman yang lainnya sampai kehalaman paling ujung dari website tersebut, untuk mengakali itu, saya mengambil nilai atribut href dari tombol `next pagination` yang dimana itu berisi nilai url ke halaman selanjutnya
 
 ![ss pagination](./images/post-3/4.png)
 
@@ -186,7 +186,7 @@ return await WaifuGenerator(nextUrlPage)
 ```
 
 ## Export data ke json 📝
-Sebelumnya kita sudah membuat kode untuk melakukan scraping data, nah langkah selanjutnya adalah kita akan membuat data-data tersebut tersimpan disebuah file `.json`, untuk melakukannya, saya membuat file bernama `index.js` di root projek yang kita kerjakan, dan didalam file tersebut, kita akan mengenerate data-data tersebut ke dalam bentuk file `.json`, untuk kodenya bisa dilihat dibawah ini
+Sebelumnya kita sudah membuat kode untuk melakukan scraping data, nah langkah selanjutnya adalah kita akan membuat data-data tersebut tersimpan disebuah file `.json`, untuk melakukannya, saya membuat berkas bernama `index.js` di root projek yang kita kerjakan, dan didalam file tersebut, kita akan mengenerate data-data tersebut ke dalam bentuk file `.json`, untuk kodenya bisa dilihat dibawah ini
 
 ```js
 const waifuScrape = require('./src/waifuScrape')
@@ -212,14 +212,14 @@ console.log(chalk.blue.bgYellow(`\n =========Scraping Start========= \n`))
 scrape()
 ```
 
-Bisa dilihat diatas, pertama kita akan memanggil sebuah module bawaan node js yang bernama fs yang dimana module itu kita akan gunakan untuk membuat sebuah file `.json` nya, setelah itu saya membuat sebuah fungsi yang dimana akan menjalankan proses pembuatan file tersebut, setelah dijalankan maka proses scraping data dimulai dan jika sudah selesai maka file tersebut akan berada di dalam folder `data/data.json` seperti isi dari nilai variabel `outputFile`, berikut merupakan hasil dari data tersebut. [Klik disini](https://raw.githubusercontent.com/satyawikananda/waifu-generator/main/data/data.json)
+Bisa dilihat diatas, pertama kita akan memanggil sebuah modul bawaan Node.js yang bernama fs yang dimana modul itu kita akan gunakan untuk membuat sebuah berkas `.json` nya, setelah itu saya membuat sebuah fungsi yang dimana akan menjalankan proses pembuatan berkas tersebut, setelah dijalankan maka proses scraping data dimulai dan jika sudah selesai maka berkas tersebut akan berada di dalam folder `data/data.json` seperti isi dari nilai variabel `outputFile`, berikut merupakan hasil dari data tersebut. [Klik disini](https://raw.githubusercontent.com/satyawikananda/waifu-generator/main/data/data.json)
 
 # Jadikan API dengan Vercel 🌐
 Vercel adalah sebuah platform dimana kamu bisa mendeploy website statis kamu secara gratis dan sudah bisa diakses langsung dengan domain `.vercel.app`. Selain website, kita juga bisa mengandalkan fitur serverless function dimana dengan mengandalkan fitur ini, kita bisa deploy api kita di vercel
 
 > Selain Javascript/Typescript (Node js), Vercel juga mendukung bahasa yang lain seperti Go, Python, Ruby, dll. Selengkapnya bisa liat [disini](https://vercel.com/docs/serverless-functions/supported-languages).
 
-Agar `data.json` tersebut bisa menjadi sebuah API, yang pertama dilakukan adalah membuat folder bernama `api`, kenapa buat folder `api` ini? dikarenakan ini sudah menjadi standar dari vercel dan harus membuat folder ini jika ingin membuat serverless function dengan Vercel. Dalam projek saya ini, saya membuat lagi sebuah folder bernama `v1` didalam folder `api` dan didalam folder `v1` tersebut saya membuat sebuah berkas js yang bernama `index.js`, dimana didalam berkas tersebut terdapat kode yang akan membaca file `data.json` tersebut setelah itu saya parse data tersebut kedalam format JSON dengan cara `JSON.parse()`, selengkapnya bisa dilihat dibawah ini
+Agar `data.json` tersebut bisa menjadi sebuah API, yang pertama dilakukan adalah membuat folder bernama `api`, kenapa buat folder `api` ini? dikarenakan ini sudah menjadi standar dari vercel dan harus membuat folder ini jika ingin membuat serverless function dengan Vercel. Dalam projek saya ini, saya membuat lagi sebuah folder bernama `v1` didalam folder `api` dan didalam folder `v1` tersebut saya membuat sebuah berkas js yang bernama `index.js`, dimana didalam berkas tersebut terdapat kode yang akan membaca file `data.json` tersebut setelah itu saya `parse` data tersebut kedalam format JSON dengan cara `JSON.parse()`, selengkapnya bisa dilihat dibawah ini
 
 ```js
 const path = require('path')
