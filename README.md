@@ -1,3 +1,5 @@
+> # ⚠ Blog ini sudah dipindahkan ke [Tulisan Satya](https://github.com/satyawikananda/tulisan-satya)
+
 <div align="center">
     <h1> Grammer blog ✍😎</h1>
     
